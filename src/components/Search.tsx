@@ -86,12 +86,6 @@ export default function Search() {
       <div>
         {context.info?.meanings.map((item: any, index: number) => (
           <div key={index}>
-            {item.antonyms.map((item: any, index: number) => (
-              <div key={index}>
-                <div>{item}</div>
-              </div>
-            ))}
-
             <ul className=" list-disc  w-[327px]">
               {item.definitions.map((item: any, index: number) => (
                 <li key={index} className="ml-4">
@@ -100,14 +94,38 @@ export default function Search() {
               ))}
             </ul>
 
-            {item.synonyms.map((item: any, index: number) => (
+            {/* {item.antonyms.map((item: any, index: number) => (
               <div key={index}>
-                <div>Synonyms {item}</div>
+                <div>{item}</div>
               </div>
             ))}
+            <div className=" flex flex-wrap items-center gap-1  w-[327px]">
+              <p className="text-[#757575] mr-5">Synonyms</p>
+              {item.synonyms.map((item: any, index: number) => (
+                <div key={index}>
+                  <div className="text-[#A445ED]  "> {item}</div>
+                </div>
+              ))}
+            </div> */}
           </div>
         ))}
       </div>
+
+      <section className=" w-[200px] h-[5px] bg-red-400"></section>
+      <div className=" flex flex-row items-center gap-6">
+        {" "}
+        <p className="text-[#757575]">Synonyms</p>
+        {context.info?.meanings.map((item: any, index: number) => (
+          <div className="text-[#A445ED]" key={index}>
+            {" "}
+            {item.synonyms.join("  ")}
+          </div>
+        ))}
+      </div>
+      <section className=" w-[200px] h-[5px] bg-green-300 mt-20"></section>
+      {context.info?.meanings.map((item: any, index: number) => (
+        <div key={index}> {item.antonyms.join("  ")}</div>
+      ))}
     </section>
   );
 }
