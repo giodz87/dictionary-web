@@ -30,7 +30,10 @@ export default function Search() {
   }, []);
 
   return (
-    <section className=" relative">
+    <section
+      style={{ fontFamily: context.findFont }}
+      className={` ${context.findFont} relative flex flex-col pb-[85px]  gap-8`}
+    >
       <input
         value={context.search}
         onChange={handleSearch}
@@ -52,11 +55,10 @@ export default function Search() {
           alt="search logo"
         />
       </button>
-
       <div
         className={`  ${
           context.moonLight ? " text-[#2D2D2D]" : " text-white"
-        } flex flex-row items-center justify-between  w-full pt-6`}
+        } flex flex-row items-center justify-between  w-[327px] `}
       >
         <div>
           <div className="text-[32px] font-bold">{context.info?.word}</div>
@@ -68,64 +70,114 @@ export default function Search() {
           {context.info && (
             <div>
               <img
-                className="w-12 h-12"
+                className="w-12 h-12 cursor-pointer"
                 onClick={() => {
                   audio.current.play();
                 }}
                 src="./dictionary-web-app/starter-code/assets/images/icon-play.svg"
                 alt=""
               />
+
               <audio
                 ref={audio}
-                src={context.info?.phonetics[phonetic.current].audio}
+                src={context.info?.phonetics[phonetic.current]?.audio}
               ></audio>
             </div>
           )}
         </div>
       </div>
+      <div className="flex flex-row  items-center justify-between  ">
+        <p
+          className={` ${
+            context.moonLight ? " text-[#2D2D2D]" : "text-white"
+          }  text-[18px] font-bold`}
+        >
+          noun
+        </p>{" "}
+        <hr className="w-[266px] h-[1px] bg-[#3A3A3A]" />
+      </div>
       <div>
-        {context.info?.meanings.map((item: any, index: number) => (
-          <div key={index}>
-            <ul className=" list-disc  w-[327px]">
-              {item.definitions.map((item: any, index: number) => (
-                <li key={index} className="ml-4">
-                  <div className="list-item">{item.definition}</div>
-                </li>
-              ))}
-            </ul>
-
-            {/* {item.antonyms.map((item: any, index: number) => (
-              <div key={index}>
-                <div>{item}</div>
-              </div>
+        <p className="text-[#757575] text-[16px] font-normal pb-2">Meaning</p>
+        <ul className=" text-[#8F19E8] list-disc  w-[327px] ">
+          {context.info?.meanings[0].definitions
+            .slice(0, 3)
+            .map((item: any, index: number) => (
+              <li className=" ml-4 " key={index}>
+                <p
+                  className={` ${
+                    context.moonLight ? " text-[#2D2D2D]" : "text-white"
+                  } text-[15px] font-normal leading-6  `}
+                >
+                  {item.definition}
+                </p>
+              </li>
             ))}
-            <div className=" flex flex-wrap items-center gap-1  w-[327px]">
-              <p className="text-[#757575] mr-5">Synonyms</p>
-              {item.synonyms.map((item: any, index: number) => (
-                <div key={index}>
-                  <div className="text-[#A445ED]  "> {item}</div>
-                </div>
-              ))}
-            </div> */}
-          </div>
-        ))}
+        </ul>
       </div>
-
-      <section className=" w-[200px] h-[5px] bg-red-400"></section>
-      <div className=" flex flex-row items-center gap-6">
+      <div className="flex flex-wrap items-center gap-2 w-[327px]">
         {" "}
-        <p className="text-[#757575]">Synonyms</p>
-        {context.info?.meanings.map((item: any, index: number) => (
-          <div className="text-[#A445ED]" key={index}>
-            {" "}
-            {item.synonyms.join("  ")}
-          </div>
+        <p className="text-[#757575] text-[16px] font-normal ">Synonyms</p>
+        {context.info?.meanings[0].synonyms.map((item: any, index: number) => (
+          <p className="text-[#A445ED] " key={index}>
+            {item}
+          </p>
         ))}
       </div>
-      <section className=" w-[200px] h-[5px] bg-green-300 mt-20"></section>
-      {context.info?.meanings.map((item: any, index: number) => (
-        <div key={index}> {item.antonyms.join("  ")}</div>
-      ))}
+      <div className=" flex flex-wrap items-center gap-2 w-[327px]">
+        <p className="text-[#757575]  text-[16px] font-normal">antonyms</p>
+        {context.info?.meanings[0].antonyms.map((item: any, index: number) => (
+          <p className="text-[#A445ED] " key={index}>
+            {" "}
+            {item}
+          </p>
+        ))}
+      </div>{" "}
+      <div className="flex flex-row  items-center justify-between  ">
+        <p
+          className={` ${
+            context.moonLight ? " text-[#2D2D2D]" : "text-white"
+          } text-[18px] font-bold`}
+        >
+          verb
+        </p>{" "}
+        <hr className="w-[266px] h-[1px] bg-[#3A3A3A]" />
+      </div>
+      <div className="w-[327px]">
+        <p className="text-[#757575] text-[16px] font-normal pb-2">Meaning</p>
+        {context.info?.meanings[
+          context.info.meanings.length - 1
+        ].definitions.map((item: any, index: number) => (
+          <ul className=" text-[#8F19E8] list-disc w-[327px] " key={index}>
+            <li className=" ml-4 ">
+              <p
+                className={`${
+                  context.moonLight ? " text-[#2D2D2D]" : "text-white"
+                } text-[15px] font-normal leading-6 pb-3`}
+              >
+                {item.definition}
+              </p>
+            </li>
+            <div className=" pl-[20px] w-[302px] text-[15px] font-normal leading-6 text-[#757575]">
+              {item.example}
+            </div>
+          </ul>
+        ))}
+      </div>
+      <hr className="w-[327px] h-[1px] bg-[#3A3A3A]" />
+      <div>
+        <p className="text-[#757575] text-[16px] font-normal pb-2">Source</p>
+        {context.info?.sourceUrls.map((item: any, index: number) => (
+          <a key={index} href={item}>
+            <p
+              className={`${
+                context.moonLight ? " text-[#2D2D2D]" : "text-white"
+              }`}
+            >
+              {item}
+            </p>
+          </a>
+        ))}
+      </div>
     </section>
   );
 }

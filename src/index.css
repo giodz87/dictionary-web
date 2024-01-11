@@ -9,9 +9,30 @@
 }
 
 #root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+@font-face {
+  font-family: "Sans Serif";
+  src: url(/assets/fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.ttf),
+    url(/assets/fonts/inconsolata/static/Inconsolata-Bold.ttf),
+    url(/assets/fonts/inconsolata/static/Inconsolata-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Serif";
+  src: url(/dictionary-web-app/public/assets/fonts/inter/Inter-VariableFont_slntwght.ttf),
+    url(/dictionary-web-app/public/assets/fonts/inter/static/Inter-Bold.ttf),
+    url(/dictionary-web-app/public/assets/fonts/inter/static/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Mono";
+  src: url(/dictionary-web-app/public/assets/fonts/lora/Lora-VariableFont_wght.ttf),
+    url(/dictionary-web-app/public/assets/fonts/lora/Lora-Italic-VariableFont_wght.ttf),
+    url(/dictionary-web-app/public/assets/fonts/lora/static/Lora-Regular.ttf),
+    url(/dictionary-web-app/public/assets/fonts/lora/static/Lora-BoldItalic.ttf),
+    url(/dictionary-web-app/public/assets/fonts/lora/static/Lora-Regular.ttf);
 }

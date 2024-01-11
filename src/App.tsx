@@ -45,13 +45,14 @@ export type MyContextProps = {
   setInfo: (value: WordData) => void;
   search: string;
   setSearch: (value: string) => void;
-
+  findFont: string;
+  setFindFont: (value: string) => void;
   getApi: () => void;
 };
 
 function App() {
-  const [moonLight, setMoonLight] = useState<boolean>(false);
-  const [fontStyle, setFontStyle] = useState<any>({ font: "Sans Serif" });
+  const [moonLight, setMoonLight] = useState<boolean>(true);
+  const [findFont, setFindFont] = useState<string>("Sans Serif");
   const [info, setInfo] = useState<WordData | undefined>();
   const [search, setSearch] = useState<string>("");
 
@@ -67,7 +68,10 @@ function App() {
     } catch (err) {}
   };
 
-  console.log(info);
+  useEffect(() => {
+    document.body.style.fontFamily = findFont;
+  }, [findFont]);
+
   useEffect(() => {
     const body = document.body;
     if (moonLight) {
@@ -86,6 +90,8 @@ function App() {
         getApi,
         search,
         setSearch,
+        findFont,
+        setFindFont,
       }}
     >
       <Header />
