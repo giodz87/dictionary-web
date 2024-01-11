@@ -30,10 +30,7 @@ export default function Search() {
   }, []);
 
   return (
-    <section
-      style={{ fontFamily: context.findFont }}
-      className={` ${context.findFont} relative flex flex-col pb-[85px]  gap-8`}
-    >
+    <section className={`   relative flex flex-col pb-[85px]  gap-8`}>
       <input
         value={context.search}
         onChange={handleSearch}
@@ -51,7 +48,7 @@ export default function Search() {
       >
         <img
           className=" absolute right-8 top-4"
-          src="./dictionary-web-app/starter-code/assets/images/icon-search.svg"
+          src="./assets/images/icon-search.svg"
           alt="search logo"
         />
       </button>
@@ -66,6 +63,7 @@ export default function Search() {
             {context.info?.phonetic}
           </div>
         </div>
+
         <div>
           {context.info && (
             <div>
@@ -74,7 +72,7 @@ export default function Search() {
                 onClick={() => {
                   audio.current.play();
                 }}
-                src="./dictionary-web-app/starter-code/assets/images/icon-play.svg"
+                src="./assets/images/icon-play.svg"
                 alt=""
               />
 

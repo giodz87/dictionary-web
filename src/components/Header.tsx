@@ -14,10 +14,7 @@ export default function Header() {
       }  flex flex-row w-full items-center justify-center  `}
     >
       <div className="w-[375px] flex flex-row items-center justify-between py-6 px-6">
-        <img
-          src="./dictionary-web-app/starter-code/assets/images/logo.svg"
-          alt="Logo"
-        />
+        <img src="./assets/images/logo.svg" alt="Logo" />
 
         <div className="flex flex-row items-center justify-between gap-4">
           <div className="flex flex-row items-center justify-between gap-4">
@@ -35,7 +32,7 @@ export default function Header() {
                     onClick={() => {
                       context.setFindFont("Sans Serif"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED]"
+                    className="hover:text-[#A445ED] cursor-pointer"
                   >
                     Sans Serif
                   </p>
@@ -43,7 +40,7 @@ export default function Header() {
                     onClick={() => {
                       context.setFindFont("Serif"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED]"
+                    className="hover:text-[#A445ED] cursor-pointer"
                   >
                     Serif
                   </p>
@@ -51,7 +48,7 @@ export default function Header() {
                     onClick={() => {
                       context.setFindFont("Mono"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED]"
+                    className="hover:text-[#A445ED] cursor-pointer"
                   >
                     Mono
                   </p>
@@ -62,7 +59,7 @@ export default function Header() {
               onClick={() => {
                 setMenuBar(!menuBar);
               }}
-              src="./public/dictionary-web-app/starter-code/assets/images/icon-arrow-down.svg"
+              src="./assets/images/icon-arrow-down.svg"
               alt=""
             />
           </div>
@@ -81,17 +78,15 @@ export default function Header() {
               }  absolute  w-3.5 h-3.5  rounded-full bg-white `}
             ></button>
           </div>
-          {context.moonLight ? (
-            <img
-              src="./dictionary-web-app/starter-code/assets/images/icon-moon.svg"
-              alt=""
-            />
-          ) : (
-            <img
-              src="./dictionary-web-app/starter-code/assets/images/icon-night-moon.svg"
-              alt=""
-            />
-          )}
+
+          <img
+            src={`${
+              context.moonLight
+                ? "./assets/images/icon-moon.svg"
+                : "./assets/images/icon-night-moon.svg"
+            }`}
+            alt=""
+          />
         </div>
       </div>
     </header>
