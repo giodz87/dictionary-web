@@ -41,7 +41,7 @@ interface WordData {
 export type MyContextProps = {
   moonLight: boolean;
   setMoonLight: (value: boolean) => void;
-  info: WordData | undefined;
+  info: WordData | undefined | null;
   setInfo: (value: WordData) => void;
   search: string;
   setSearch: (value: string) => void;
@@ -53,7 +53,7 @@ export type MyContextProps = {
 function App() {
   const [moonLight, setMoonLight] = useState<boolean>(false);
   const [findFont, setFindFont] = useState<string>("Sans Serif");
-  const [info, setInfo] = useState<WordData | undefined>();
+  const [info, setInfo] = useState<WordData | undefined | null>();
   const [search, setSearch] = useState<string>("");
 
   const getApi = async () => {
@@ -64,8 +64,12 @@ function App() {
       const data = await response.json();
       if (response.ok) {
         setInfo(data[0]);
+      } else {
+        setInfo(null);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log("error");
+    }
   };
 
   useEffect(() => {

@@ -60,7 +60,8 @@ export default function Header() {
                 setMenuBar(!menuBar);
               }}
               src="./assets/images/icon-arrow-down.svg"
-              alt=""
+              alt="arrow down"
+              className=" cursor-pointer"
             />
           </div>
           <hr className="h-8 w-[1px] bg-[#E9E9E9]" />
