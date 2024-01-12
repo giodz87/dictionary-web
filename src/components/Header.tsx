@@ -13,7 +13,7 @@ export default function Header() {
           : "bg-[#050505] text-[#FFF]"
       }  flex flex-row w-full items-center justify-center  `}
     >
-      <div className="w-[375px] flex flex-row items-center justify-between py-6 px-6 md:w-[768px] md:px-10 md:py-14">
+      <div className="w-[375px] flex flex-row items-center justify-between py-6 px-6 md:w-[768px] md:px-10 md:py-14 xl:w-[736px] xl:px-0">
         <img src="./assets/images/logo.svg" alt="Logo" />
 
         <div className="flex flex-row items-center justify-between gap-4">
