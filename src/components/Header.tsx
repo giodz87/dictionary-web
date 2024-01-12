@@ -13,12 +13,12 @@ export default function Header() {
           : "bg-[#050505] text-[#FFF]"
       }  flex flex-row w-full items-center justify-center  `}
     >
-      <div className="w-[375px] flex flex-row items-center justify-between py-6 px-6">
+      <div className="w-[375px] flex flex-row items-center justify-between py-6 px-6 md:w-[768px] md:px-10 md:py-14">
         <img src="./assets/images/logo.svg" alt="Logo" />
 
         <div className="flex flex-row items-center justify-between gap-4">
           <div className="flex flex-row items-center justify-between gap-4">
-            <div className=" relative">
+            <div className=" text-[14px] font-bold leading-6  relative md:text-[18px]">
               <p>{context.findFont}</p>
               {menuBar && (
                 <div
@@ -26,13 +26,13 @@ export default function Header() {
                     context.moonLight
                       ? "bg-[#FFF] text-[#2D2D2D] shadow-[0px_5px_30px_0px_#00000019] "
                       : "bg-[#1F1F1F] text-[#FFF]  shadow-[0px_5px_30px_0px_#A445ED] "
-                  } right-[-30px] top-[40px]    flex  flex-col items-start justify-between  absolute w-[143px] h-[112px] rounded-2xl p-6 z-10`}
+                  } right-[-30px] top-[40px]   flex  flex-col items-start justify-between  absolute w-[143px] h-[112px] rounded-2xl p-6 z-10 md:w-[183px] md:h-[152px]`}
                 >
                   <p
                     onClick={() => {
                       context.setFindFont("Sans Serif"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED] cursor-pointer"
+                    className="hover:text-[#A445ED] cursor-pointer  "
                   >
                     Sans Serif
                   </p>
@@ -40,7 +40,7 @@ export default function Header() {
                     onClick={() => {
                       context.setFindFont("Serif"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED] cursor-pointer"
+                    className="hover:text-[#A445ED] cursor-pointer  "
                   >
                     Serif
                   </p>
@@ -48,7 +48,7 @@ export default function Header() {
                     onClick={() => {
                       context.setFindFont("Mono"), setMenuBar(false);
                     }}
-                    className="hover:text-[#A445ED] cursor-pointer"
+                    className="hover:text-[#A445ED] cursor-pointer "
                   >
                     Mono
                   </p>

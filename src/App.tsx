@@ -51,7 +51,7 @@ export type MyContextProps = {
 };
 
 function App() {
-  const [moonLight, setMoonLight] = useState<boolean>(true);
+  const [moonLight, setMoonLight] = useState<boolean>(false);
   const [findFont, setFindFont] = useState<string>("Sans Serif");
   const [info, setInfo] = useState<WordData | undefined>();
   const [search, setSearch] = useState<string>("");
